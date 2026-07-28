@@ -4,19 +4,14 @@ const router = express.Router();
 
 const authMiddleware = require("../middleware/authMiddleware");
 
-// Test Protected Route
-router.get("/profile", authMiddleware, (req, res) => {
+const { getProfile } = require("../controllers/userController");
 
-    res.status(200).json({
+// ========================================
+// Protected User Routes
+// ========================================
 
-        success: true,
+// Get Logged In User Profile
 
-        message: "Profile fetched successfully",
-
-        user: req.user
-
-    });
-
-});
+router.get("/profile", authMiddleware, getProfile);
 
 module.exports = router;
