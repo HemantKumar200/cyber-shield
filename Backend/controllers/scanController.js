@@ -1,4 +1,6 @@
+
 const Scan = require("../models/Scan");
+const detectPhishing = require("../utils/phishingDetector");
 
 // ============================================
 // Scan Message Controller
@@ -21,88 +23,7 @@ const scanMessage = async (req, res) => {
 
         }
 
-        // -----------------------------
-        // AI Detection Logic
-        // -----------------------------
-
-        let riskScore = 0;
-
-        let reasons = [];
-
-        let result = "SAFE";
-
-        // Suspicious Keywords
-
-        const keywords = [
-
-            "urgent",
-            "verify",
-            "bank",
-            "otp",
-            "password",
-            "click here",
-            "login",
-            "gift",
-            "winner",
-            "claim",
-            "account suspended",
-            "limited time"
-
-        ];
-
-        const lowerMessage = message.toLowerCase();
-
-        keywords.forEach((word) => {
-
-            if (lowerMessage.includes(word)) {
-
-                riskScore += 10;
-
-                reasons.push(`Keyword Detected : ${word}`);
-
-            }
-
-        });
-
-        // URL Detection
-
-        if (lowerMessage.includes("http://") || lowerMessage.includes("https://")) {
-
-            riskScore += 20;
-
-            reasons.push("URL Found");
-
-        }
-
-        // Email Detection
-
-        if (lowerMessage.includes("@")) {
-
-            riskScore += 5;
-
-            reasons.push("Email Address Found");
-
-        }
-
-        // Result
-
-        if (riskScore >= 70) {
-
-            result = "PHISHING";
-
-        }
-
-        else if (riskScore >= 30) {
-
-            result = "SUSPICIOUS";
-
-        }
-
-        else {
-
-            result = "SAFE";
-
-        }
+        const analysis = detectPhishing(message);
 
         // Save Scan
 
@@ -112,11 +33,11 @@ const scanMessage = async (req, res) => {
 
             message,
 
-            riskScore,
+            riskScore: analysis.riskScore,
 
-            result,
+            result: analysis.result,
 
-            reasons
+            reasons: analysis.reasons
 
         });
 

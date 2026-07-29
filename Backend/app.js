@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-
+const detectPhishing = require("../utils/phishingDetector");
 const connectDB = require("./config/db");
 const scanRoutes = require("./routes/scanRoutes");
 const authRoutes = require("./routes/authRoutes");
