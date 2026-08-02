@@ -49,7 +49,60 @@ const detectPhishing = (message) => {
         reasons.push("URL Detected");
 
     }
+    // -------------------------
+    // Suspicious Domain Detection
+    // -------------------------
 
+    const suspiciousDomains = [
+
+        ".xyz",
+        ".top",
+        ".click",
+        ".gq",
+        ".tk",
+        ".work"
+
+    ];
+
+    suspiciousDomains.forEach((domain) => {
+
+        if (text.includes(domain)) {
+
+            riskScore += 20;
+
+            reasons.push(`Suspicious Domain: ${domain}`);
+
+        }
+
+    });
+
+    // -------------------------
+    // IP Address URL Detection
+    // -------------------------
+
+    const ipRegex = /\b(?:\d{1,3}\.){3}\d{1,3}\b/;
+
+    if (ipRegex.test(text)) {
+
+        riskScore += 25;
+
+        reasons.push("IP Address URL Detected");
+
+    }
+
+    // -------------------------
+// Multiple URL Detection
+// -------------------------
+
+const urls = text.match(/https?:\/\/[^\s]+/g);
+
+if (urls && urls.length > 1) {
+
+    riskScore += 10;
+
+    reasons.push("Multiple URLs Found");
+
+}
     // -------------------------
     // Short URL Detection
     // -------------------------
