@@ -1,52 +1,55 @@
-// ==========================================
-// Dashboard Controller
-// ==========================================
+const Scan = require("../models/Scan");
 
-const dashboard = async (req, res) => {
+const getDashboardStats = async (req, res) => {
 
     try {
 
-        const dashboardData = {
+        const userId = req.user._id;
 
-            user: {
+        const totalScans = await Scan.countDocuments({ user: userId });
 
-                id: req.user._id,
-                fullName: req.user.fullName,
-                email: req.user.email
+        const safe = await Scan.countDocuments({
+            user: userId,
+            result: "SAFE"
+        });
 
-            },
+        const suspicious = await Scan.countDocuments({
+            user: userId,
+            result: "SUSPICIOUS"
+        });
 
-            statistics: {
+        const phishing = await Scan.countDocuments({
+            user: userId,
+            result: "PHISHING"
+        });
 
-                totalScans: 0,
-                safeMessages: 0,
-                phishingDetected: 0,
-                riskScore: 0
+        const scans = await Scan.find({ user: userId });
 
-            },
+        let totalRisk = 0;
 
-            recentScans: [],
+        scans.forEach(scan => {
 
-            recentAlerts: [],
+            totalRisk += scan.riskScore;
 
-            recommendations: [
+        });
 
-                "Always verify unknown email senders.",
-                "Never click suspicious links.",
-                "Enable Two-Factor Authentication.",
-                "Keep your browser updated."
-
-            ]
-
-        };
+        const averageRisk = totalScans === 0
+            ? 0
+            : Math.round(totalRisk / totalScans);
 
         return res.status(200).json({
 
             success: true,
 
-            message: "Dashboard loaded successfully",
+            stats: {
 
-            data: dashboardData
+                totalScans,
+                safe,
+                suspicious,
+                phishing,
+                averageRisk
+
+            }
 
         });
 
@@ -57,7 +60,6 @@ const dashboard = async (req, res) => {
         return res.status(500).json({
 
             success: false,
-
             message: "Internal Server Error"
 
         });
@@ -67,7 +69,5 @@ const dashboard = async (req, res) => {
 };
 
 module.exports = {
-
-    dashboard
-
+    getDashboardStats
 };
