@@ -10,7 +10,6 @@ const detectPhishing = (message) => {
     // -------------------------
 
     const suspiciousKeywords = [
-
         "urgent",
         "verify",
         "bank",
@@ -23,7 +22,6 @@ const detectPhishing = (message) => {
         "claim",
         "limited time",
         "account suspended"
-
     ];
 
     suspiciousKeywords.forEach((word) => {
@@ -49,19 +47,18 @@ const detectPhishing = (message) => {
         reasons.push("URL Detected");
 
     }
+
     // -------------------------
     // Suspicious Domain Detection
     // -------------------------
 
     const suspiciousDomains = [
-
         ".xyz",
         ".top",
         ".click",
         ".gq",
         ".tk",
         ".work"
-
     ];
 
     suspiciousDomains.forEach((domain) => {
@@ -69,7 +66,6 @@ const detectPhishing = (message) => {
         if (text.includes(domain)) {
 
             riskScore += 20;
-
             reasons.push(`Suspicious Domain: ${domain}`);
 
         }
@@ -85,35 +81,32 @@ const detectPhishing = (message) => {
     if (ipRegex.test(text)) {
 
         riskScore += 25;
-
         reasons.push("IP Address URL Detected");
 
     }
 
     // -------------------------
-// Multiple URL Detection
-// -------------------------
+    // Multiple URL Detection
+    // -------------------------
 
-const urls = text.match(/https?:\/\/[^\s]+/g);
+    const urls = text.match(/https?:\/\/[^\s]+/g);
 
-if (urls && urls.length > 1) {
+    if (urls && urls.length > 1) {
 
-    riskScore += 10;
+        riskScore += 10;
+        reasons.push("Multiple URLs Found");
 
-    reasons.push("Multiple URLs Found");
+    }
 
-}
     // -------------------------
     // Short URL Detection
     // -------------------------
 
     const shortUrls = [
-
         "bit.ly",
         "tinyurl",
         "t.co",
         "goo.gl"
-
     ];
 
     shortUrls.forEach((site) => {
@@ -150,19 +143,65 @@ if (urls && urls.length > 1) {
 
         result = "PHISHING";
 
-    }
-
-    else if (riskScore >= 30) {
+    } else if (riskScore >= 30) {
 
         result = "SUSPICIOUS";
+
+    }
+
+    // -------------------------
+    // Threat Level
+    // -------------------------
+
+    let threatLevel = "LOW";
+
+    if (riskScore >= 70) {
+
+        threatLevel = "HIGH";
+
+    } else if (riskScore >= 30) {
+
+        threatLevel = "MEDIUM";
+
+    }
+
+    // -------------------------
+    // Recommendations
+    // -------------------------
+
+    let recommendations = [];
+
+    if (result === "PHISHING") {
+
+        recommendations = [
+            "Do not click the suspicious link.",
+            "Never share OTP or password.",
+            "Verify sender from official website.",
+            "Report this phishing message."
+        ];
+
+    } else if (result === "SUSPICIOUS") {
+
+        recommendations = [
+            "Verify the sender before taking action.",
+            "Avoid opening unknown links."
+        ];
+
+    } else {
+
+        recommendations = [
+            "No major threat detected."
+        ];
 
     }
 
     return {
 
         riskScore,
+        result,
+        threatLevel,
         reasons,
-        result
+        recommendations
 
     };
 

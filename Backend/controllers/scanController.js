@@ -1,4 +1,3 @@
-
 const Scan = require("../models/Scan");
 const detectPhishing = require("../utils/phishingDetector");
 
@@ -23,10 +22,10 @@ const scanMessage = async (req, res) => {
 
         }
 
+        // AI Detection
         const analysis = detectPhishing(message);
 
         // Save Scan
-
         const scan = await Scan.create({
 
             user: req.user._id,
@@ -37,7 +36,11 @@ const scanMessage = async (req, res) => {
 
             result: analysis.result,
 
-            reasons: analysis.reasons
+            threatLevel: analysis.threatLevel,
+
+            reasons: analysis.reasons,
+
+            recommendations: analysis.recommendations
 
         });
 
@@ -51,16 +54,13 @@ const scanMessage = async (req, res) => {
 
         });
 
-    }
-
-    catch (error) {
+    } catch (error) {
 
         console.log(error);
 
         return res.status(500).json({
 
             success: false,
-
             message: "Internal Server Error"
 
         });
@@ -69,11 +69,9 @@ const scanMessage = async (req, res) => {
 
 };
 
-module.exports = {
-
-    scanMessage
-
-};
+// ============================================
+// Get Scan History
+// ============================================
 
 const getScanHistory = async (req, res) => {
 
@@ -106,7 +104,6 @@ const getScanHistory = async (req, res) => {
         return res.status(500).json({
 
             success: false,
-
             message: "Internal Server Error"
 
         });
@@ -114,6 +111,11 @@ const getScanHistory = async (req, res) => {
     }
 
 };
+
+// ============================================
+// Export Controllers
+// ============================================
+
 module.exports = {
 
     scanMessage,

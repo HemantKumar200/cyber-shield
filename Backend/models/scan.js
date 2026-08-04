@@ -54,7 +54,15 @@ const scanSchema = new mongoose.Schema({
 
         default: Date.now
 
-    }
+    },
+
+    threatLevel: {
+        type: String
+    },
+
+    recommendations: [{
+        type: String
+    }]
 
 });
 
