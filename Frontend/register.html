@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Create Account | Cyber Shield</title>
+
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/register.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- Background -->
+
+    <div class="auth-grid"></div>
+
+    <div class="auth-glow glow-left"></div>
+    <div class="auth-glow glow-right"></div>
+
+
+    <main class="register-page">
+
+
+        <!-- ================= LEFT SIDE ================= -->
+
+        <section class="register-info">
+
+            <a href="index.html" class="auth-logo">
+
+                <span class="auth-logo-icon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </span>
+
+                Cyber<span>Shield</span>
+
+            </a>
+
+
+            <div class="register-info-content">
+
+                <div class="security-badge">
+
+                    <span></span>
+
+                    JOIN THE SHIELD
+
+                </div>
+
+
+                <h1>
+
+                    Start Your
+                    <br>
+
+                    <span>Digital Protection.</span>
+
+                </h1>
+
+
+                <p>
+
+                    Create your Cyber Shield account and get
+                    intelligent protection against phishing,
+                    suspicious messages and digital threats.
+
+                </p>
+
+
+                <div class="register-benefits">
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>Intelligent Detection</strong>
+
+                            <span>
+                                Analyze suspicious content
+                                with threat intelligence.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>Risk Intelligence</strong>
+
+                            <span>
+                                Get a clear 0–100 threat risk score.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>Security History</strong>
+
+                            <span>
+                                Track your previous security scans.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="auth-footer-text">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Built for a safer digital world
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= REGISTER FORM ================= -->
+
+        <section class="register-form-section">
+
+
+            <div class="register-card">
+
+
+                <!-- Mobile Logo -->
+
+                <div class="mobile-logo">
+
+                    <div class="auth-logo-icon">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                    </div>
+
+                    <span>
+                        Cyber<span>Shield</span>
+                    </span>
+
+                </div>
+
+
+                <!-- Heading -->
+
+                <div class="form-heading">
+
+                    <div class="form-icon">
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2>Create Account</h2>
+
+                        <p>
+                            Start protecting your digital world
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= FORM ================= -->
+
+                <form id="registerForm">
+
+
+                    <!-- Full Name -->
+
+                    <div class="input-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-regular fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                name="fullName"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Email -->
+
+                    <div class="input-group">
+
+                        <label for="registerEmail">
+                            Email Address
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="registerEmail"
+                                name="email"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Password -->
+
+                    <div class="input-group">
+
+                        <label for="registerPassword">
+                            Password
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="registerPassword"
+                                name="password"
+                                placeholder="Create a strong password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="registerPasswordToggle"
+                            >
+
+                                <i class="fa-regular fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Password Strength -->
+
+                    <div
+                        class="password-strength"
+                        id="passwordStrength"
+                    >
+
+                        <div class="strength-bars">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                        <p id="strengthText">
+                            Enter a password
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Confirm Password -->
+
+                    <div class="input-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Confirm your password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="confirmPasswordToggle"
+                            >
+
+                                <i class="fa-regular fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Terms -->
+
+                    <label class="terms">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                        >
+
+                        <span class="terms-box"></span>
+
+                        <span>
+
+                            I agree to the
+                            <a href="#">Terms of Service</a>
+                            and
+                            <a href="#">Privacy Policy</a>.
+
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- Messages -->
+
+                    <div
+                        class="form-message error-message"
+                        id="registerError"
+                    ></div>
+
+
+                    <div
+                        class="form-message success-message"
+                        id="registerSuccess"
+                    ></div>
+
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        class="login-submit register-submit"
+                        id="registerBtn"
+                    >
+
+                        <span id="registerBtnText">
+                            Create Account
+                        </span>
+
+                        <i
+                            class="fa-solid fa-arrow-right"
+                            id="registerBtnIcon"
+                        ></i>
+
+                    </button>
+
+
+                </form>
+
+
+
+                <!-- Divider -->
+
+                <div class="divider">
+
+                    <span></span>
+
+                    <p>Already have an account?</p>
+
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- Login -->
+
+                <a
+                    href="login.html"
+                    class="register-btn"
+                >
+
+                    Sign In Instead
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                </a>
+
+
+
+                <!-- Security Notice -->
+
+                <div class="security-notice">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <p>
+
+                        Your information is securely processed
+                        by Cyber Shield.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/register.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | Cyber Shield</title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         BACKGROUND
+    ========================================== -->
+
+    <div class="dashboard-grid"></div>
+
+    <div class="dashboard-glow glow-one"></div>
+    <div class="dashboard-glow glow-two"></div>
+
+
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+
+        <!-- Logo -->
+
+        <div class="sidebar-logo">
+
+            <div class="sidebar-logo-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <span>
+                Cyber<span>Shield</span>
+            </span>
+
+        </div>
+
+
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-title">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="#"
+                class="nav-item active"
+                data-section="overview"
+            >
+
+                <i class="fa-solid fa-grid-2"></i>
+
+                <span>Overview</span>
+
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+                data-section="scanner"
+            >
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <span>Message Scanner</span>
+
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+                data-section="history"
+            >
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                <span>Scan History</span>
+
+            </a>
+
+
+            <p class="nav-title security-title">
+                SECURITY
+            </p>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span>Alerts</span>
+
+                <span class="nav-badge">0</span>
+
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-shield-heart"></i>
+
+                <span>Security Tips</span>
+
+            </a>
+
+        </nav>
+
+
+
+        <!-- Bottom -->
+
+        <div class="sidebar-bottom">
+
+
+            <div class="sidebar-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+
+                    <strong>System Secure</strong>
+
+                    <small>
+                        Protection active
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+            >
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+                <span>Logout</span>
+
+            </button>
+
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =====================================
+             TOPBAR
+        ====================================== -->
+
+        <header class="topbar">
+
+
+            <button
+                class="mobile-menu"
+                id="mobileMenu"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <div class="topbar-search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    placeholder="Search security activity..."
+                >
+
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <div class="system-online">
+
+                    <span></span>
+
+                    System Online
+
+                </div>
+
+
+                <button class="notification-btn">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <div class="user-profile">
+
+                    <div class="user-avatar">
+
+                        <span id="userInitial">
+                            U
+                        </span>
+
+                    </div>
+
+
+                    <div class="user-details">
+
+                        <strong id="userName">
+                            User
+                        </strong>
+
+                        <small>
+                            Protected User
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             CONTENT
+        ====================================== -->
+
+        <div class="dashboard-content">
+
+
+            <!-- ===============================
+                 OVERVIEW
+            ================================ -->
+
+            <section
+                class="dashboard-section"
+                id="overviewSection"
+            >
+
+
+                <!-- Welcome -->
+
+                <div class="welcome-section">
+
+
+                    <div>
+
+                        <div class="welcome-badge">
+
+                            <span></span>
+
+                            SECURITY CENTER
+
+                        </div>
+
+
+                        <h1>
+
+                            Welcome back,
+                            <span id="welcomeName">
+                                User
+                            </span>
+
+                            👋
+
+                        </h1>
+
+
+                        <p>
+
+                            Here's your complete digital
+                            security overview.
+
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="primary-action"
+                        id="startScanBtn"
+                    >
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        Scan Message
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- =================================
+                     STAT CARDS
+                ================================== -->
+
+                <div class="stats-grid">
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon blue">
+
+                                <i class="fa-solid fa-layer-group"></i>
+
+                            </div>
+
+                            <span class="stat-label">
+                                TOTAL SCANS
+                            </span>
+
+                        </div>
+
+
+                        <h2 id="totalScans">
+                            0
+                        </h2>
+
+
+                        <p>
+                            Messages analyzed
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="stat-card safe-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon green">
+
+                                <i class="fa-solid fa-circle-check"></i>
+
+                            </div>
+
+                            <span class="stat-label">
+                                SAFE
+                            </span>
+
+                        </div>
+
+
+                        <h2 id="safeScans">
+                            0
+                        </h2>
+
+
+                        <p>
+                            Safe messages
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="stat-card suspicious-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon yellow">
+
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                            </div>
+
+                            <span class="stat-label">
+                                SUSPICIOUS
+                            </span>
+
+                        </div>
+
+
+                        <h2 id="suspiciousScans">
+                            0
+                        </h2>
+
+
+                        <p>
+                            Need attention
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="stat-card phishing-card">
+
+                        <div class="stat-top">
+
+                            <div class="stat-icon red">
+
+                                <i class="fa-solid fa-skull-crossbones"></i>
+
+                            </div>
+
+                            <span class="stat-label">
+                                PHISHING
+                            </span>
+
+                        </div>
+
+
+                        <h2 id="phishingScans">
+                            0
+                        </h2>
+
+
+                        <p>
+                            Threats detected
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     RISK + SECURITY
+                ================================== -->
+
+                <div class="overview-grid">
+
+
+                    <!-- Risk -->
+
+                    <div class="panel risk-panel">
+
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-kicker">
+                                    SECURITY SCORE
+                                </span>
+
+                                <h3>
+                                    Average Risk
+                                </h3>
+
+                            </div>
+
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                        </div>
+
+
+                        <div class="risk-content">
+
+
+                            <div class="risk-circle">
+
+                                <div>
+
+                                    <strong id="averageRisk">
+                                        0
+                                    </strong>
+
+                                    <span>
+                                        /100
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="risk-info">
+
+                                <h4 id="riskStatus">
+                                    No scans yet
+                                </h4>
+
+                                <p id="riskDescription">
+
+                                    Start scanning messages
+                                    to understand your
+                                    security risk.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Security Status -->
+
+                    <div class="panel security-panel">
+
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-kicker">
+                                    PROTECTION
+                                </span>
+
+                                <h3>
+                                    Security Status
+                                </h3>
+
+                            </div>
+
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                        </div>
+
+
+                        <div class="protection-status">
+
+
+                            <div class="protection-icon">
+
+                                <i class="fa-solid fa-check"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Protection Active
+                                </strong>
+
+                                <p>
+                                    Cyber Shield monitoring
+                                    is ready.
+                                </p>
+
+                            </div>
+
+
+                            <span class="active-pill">
+                                ACTIVE
+                            </span>
+
+                        </div>
+
+
+                        <div class="security-progress">
+
+                            <div>
+
+                                <span>
+                                    Security readiness
+                                </span>
+
+                                <strong>
+                                    100%
+                                </strong>
+
+                            </div>
+
+
+                            <div class="progress-bar">
+
+                                <span></span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     RECENT SCANS
+                ================================== -->
+
+                <div class="panel recent-panel">
+
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-kicker">
+                                ACTIVITY
+                            </span>
+
+                            <h3>
+                                Recent Security Scans
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            class="view-all-btn"
+                            id="viewHistoryBtn"
+                        >
+
+                            View all
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="scan-list"
+                        id="recentScans"
+                    >
+
+                        <div class="empty-state">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            <p>
+                                No scans yet.
+                            </p>
+
+                            <span>
+                                Scan your first message to
+                                see activity here.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ===============================
+                 SCANNER
+            ================================ -->
+
+            <section
+                class="dashboard-section hidden-section"
+                id="scannerSection"
+            >
+
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <div class="welcome-badge">
+
+                            <span></span>
+
+                            THREAT ANALYZER
+
+                        </div>
+
+
+                        <h1>
+                            Message Scanner
+                        </h1>
+
+
+                        <p>
+                            Analyze suspicious messages
+                            with Cyber Shield.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="scanner-panel">
+
+
+                    <div class="scanner-header">
+
+                        <div class="scanner-icon">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Analyze a Message
+                            </h3>
+
+                            <p>
+                                Paste an email, SMS or
+                                suspicious message below.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <textarea
+                        id="messageInput"
+                        placeholder="Paste suspicious message here..."
+                    ></textarea>
+
+
+                    <div class="scanner-footer">
+
+                        <span id="characterCount">
+                            0 characters
+                        </span>
+
+
+                        <button
+                            class="primary-action"
+                            id="scanBtn"
+                        >
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            Analyze Message
+
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="scan-result hidden-result"
+                        id="scanResult"
+                    >
+
+                        <div class="result-header">
+
+                            <div
+                                class="result-icon"
+                                id="resultIcon"
+                            >
+
+                                <i class="fa-solid fa-shield"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    ANALYSIS RESULT
+                                </span>
+
+                                <h3 id="resultTitle">
+                                    -
+                                </h3>
+
+                            </div>
+
+
+                            <div class="result-risk">
+
+                                <strong id="resultRisk">
+                                    0
+                                </strong>
+
+                                <span>
+                                    /100
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="result-body">
+
+
+                            <div>
+
+                                <h4>
+                                    Why?
+                                </h4>
+
+                                <ul id="resultReasons">
+                                </ul>
+
+                            </div>
+
+
+                            <div>
+
+                                <h4>
+                                    Recommendations
+                                </h4>
+
+                                <ul id="resultRecommendations">
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ===============================
+                 HISTORY
+            ================================ -->
+
+            <section
+                class="dashboard-section hidden-section"
+                id="historySection"
+            >
+
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <div class="welcome-badge">
+
+                            <span></span>
+
+                            SECURITY ACTIVITY
+
+                        </div>
+
+
+                        <h1>
+                            Scan History
+                        </h1>
+
+
+                        <p>
+                            Review all your previous
+                            security scans.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel history-panel">
+
+
+                    <div
+                        class="history-list"
+                        id="historyList"
+                    >
+
+                        <div class="empty-state">
+
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+
+                            <p>
+                                No scan history available.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

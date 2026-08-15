@@ -178,9 +178,35 @@ const login = async (req, res) => {
 
 };
 
+const profile = async (req, res) => {
+
+    try {
+
+        return res.status(200).json({
+
+            success: true,
+            message: "Profile fetched successfully",
+
+            user: req.user
+
+        });
+
+    } catch (error) {
+
+        return res.status(500).json({
+
+            success: false,
+            message: "Internal Server Error"
+
+        });
+
+    }
+
+};
+
 module.exports = {
 
     register,
-    login
-
+    login,
+    profile
 };
